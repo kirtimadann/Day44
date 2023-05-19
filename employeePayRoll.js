@@ -57,7 +57,7 @@ class EmployeePayRoll{
                  return this.startDate;
                  } set startDate(startDate) {
                      this.startDate = startDate;
-            }
+                 }
             
             // method
 
