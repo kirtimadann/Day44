@@ -24,3 +24,37 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
 
+    const save =()=>{
+     try { 
+     let EmployeePayRoll = createEmployeePayroll()
+     } catch (e) {
+     return;
+     }
+}
+     
+const createEmployeePayroll = () => { 
+     let EmployeePayRoll = new EmployeePayRoll();
+     try {
+          EmployeePayRoll.name = getInputValueById('#name');
+     } catch (e) {
+     setTextValue('.text-error', e);
+     throw e;
+ }
+ EmployeePayRoll.profilePic = getSelectedValues('[name=profile]').pop(); 
+ EmployeePayRoll.gender = getSelectedValues('[name=gender]').pop();   
+ EmployeePayRoll.department = getSelectedValues('[name=department]'); 
+ EmployeePayRoll.salary = getInputValueById('#salary'); 
+ EmployeePayRoll.note = getInputValueById('#notes');
+ let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+ 
+ getInputValueById('#year') ; 
+ employeePayrollData.date= Date.parse(date);
+ alert(EmployeePayRoll.toString()); 
+ return EmployeePayRoll;
+}
+ const getSelectedValues =(propertyValue) => { 
+     let allItems=document.querySelectorAll(propertyValue);
+     let selItems = [];
+     allItems.forEach(item => {
+     if(item.checked) selItems.push(item.value); });
+     return selItems;
+     }
